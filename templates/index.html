@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌦️ Weather App</h1>
+        <div class="search-bar">
+            <input type="text" id="location" placeholder="Enter city or district" required>
+            <button type="submit" id="searchBtn"><i class="fas fa-search"></i></button>
+        </div>
+        <div id="error" class="hidden"></div>
+        <div id="weatherInfo" class="hidden">
+            <div class="weather-header">
+                <img id="weatherIcon" alt="Weather Icon">
+                <div>
+                    <h2 id="city"></h2>
+                    <p id="description" class="capitalize"></p>
+                </div>
+            </div>
+            <div class="weather-grid">
+                <div class="weather-item">
+                    <i class="fas fa-temperature-high"></i>
+                    <div>
+                        <h3>Temperature</h3>
+                        <p><span id="tempC"></span>°C / <span id="tempF"></span>°F</p>
+                        <p>Feels like <span id="feelsLikeC"></span>°C / <span id="feelsLikeF"></span>°F</p>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-tint"></i>
+                    <div>
+                        <h3>Humidity</h3>
+                        <p><span id="humidity"></span>%</p>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-compress-arrows-alt"></i>
+                    <div>
+                        <h3>Pressure</h3>
+                        <p><span id="pressureAtm"></span> atm</p>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-wind"></i>
+                    <div>
+                        <h3>Wind</h3>
+                        <p><span id="windSpeed"></span> m/s</p>
+                    </div>
+                </div>
+            </div>
+            <div id="rainChance" class="hidden">
+                <p><i class="fas fa-umbrella"></i> Chance of rain: <span id="rainPercentage"></span>%</p>
+            </div>
+            <button id="tipsBtn"><i class="fas fa-lightbulb"></i> Weather Tips</button>
+            <div id="tips" class="hidden"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
